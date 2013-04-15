@@ -1,0 +1,33 @@
+html {
+  background: url("../images/gorge.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+body {
+  background-color: transparent; }
+
+.accordion-inner {
+  background-color: white; }
+
+.clear {
+  background-color: transparent; }
+.header {
+  color: #000000;
+  font-size: 64px;
+  text-align: center;
+  background-color: transparent;
+  padding-bottom: 20px; }
+
+.hidden {
+  display: none; }
+
+.question {
+  font-weight: bold; }
+
+.hero-background {
+  opacity: 0.9;
+  background-color: white; }
+.answer {
+  padding-left: 2%; }

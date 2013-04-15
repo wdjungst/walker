@@ -1,0 +1,60 @@
+!!!
+%html
+  %head
+    %title Send Holly To Dave
+    <link href="/css/walker.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+  %body.clear
+    .container.content-wrapper
+      #content_row.row-fluid
+        %h1.header Help Bring Holly Walker To The Gorge
+        .btn-group
+          .btn#about_button About
+          .btn#donate_button Donate
+          .btn#comment_button Comment
+          .btn#faq_button FAQ
+        .hero-unit.hero-background.hidden#about-content
+          %h2 About this site
+          %p Welcome!  We would love to have Holly Walker join our DMB family again this year and we are prepared to do whatever it takes including beg!  You can click the donate link and pledge a donation to help get Holly to Dave.  You can also click the comment link and leave a message for Holly or anyone else.  The FAQ link will explain the logistics of how donations will be handled etc etc etc boring stuff.  Thank you for your support!  This time it IS our responsibilty.  
+        .hero-unit.hero-background.hidden#donate-content
+          %h2 Donate
+          %form.form-inline
+            %fieldset
+              %legend Donations
+              %label Name
+              %input{:type => "text", "placeholder" => "Your name"}
+              %label E-mail
+              %input{:type => "text", "placeholder" => "you@vailidemail.com"}
+              %label Pledge Amount 
+              .input-prepend.input-append
+                %span.add-on $
+                %input.span3#appendedPrependedInput{:type => "text", "placeholder" => "20"}
+                %span.add-on .00
+              %button.btn.btn-primary{:type => "submit"} Pledge
+        .hero-unit.hero-background.hidden#comment-content
+          %h2 Add A Message
+          #HCB_comment_box
+            %a{:href => "http://www.htmlcommentbox.com"} HTML Comment Box
+            is loading comments...
+          %link{:href => "//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0", :rel => "stylesheet", :type => "text/css"}/
+          %script#hcb{:language => "javascript", :type => "text/javascript"}
+            \/*
+            / */ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=(""+window.location || hcb_user.PAGE), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+escape(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24VzeaycceJgTSChxx2WpX7/"+"&opts=16862&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*
+            */
+        .hero-unit.hero-background.hidden#faq-content
+          .question Why are we doing this?
+          .answer Other than the fact that we love Holly?  Maybe you don't know her so you don't love her yet but you will.  Take a look at the video if you need another reason.
+          .question Why do I have to pledge first and then complete a paypal request?
+          .answer Paypal charges 2.9% + .30 for every donation if you were to make it directly on this site.  However if you pledge an ammount I can send you a paypal request for that amount and we can skip the fees.  This will allow us to raise our goal much faster.
+          .question What if we raise the money and she still can't make it for some reason?
+          .answer We really hope that this isn't the case but if there is some unforseen issue and Holly can't make it we do have a plan.  First of all we are going to buy the tickets first and if we need to we can sell them and get everyone paid back.  The rest of the money will be paid back to donors in cash.
+          .question How do I know my donation has been counted?
+          .answer There is a real time donation tracker on the home page.  Once you make your donation you can see the total increase.
+          .question Is there any other way to donate?
+          .answer Sure there are lots of ways.  You can walk right up to Holly and hand her cash if you wish but for the purposes of this site paypal is the only way.
+          .question What if I can't afford to pitch in but I still want to help?
+          .answer You can spread the word on this site and / or leave encouraging words for those who have donated on the comment section.
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js", "data-toggle" => "tab"}
+    %script{:type => "text/javascript", :src => "/javascripts/walker.js", "data-toggle" => "tab"}
+    %script{:type => "text/javascript", :src => "/javascripts/bootstrap.min.js", "data-toggle" => "tab"}

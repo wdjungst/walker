@@ -1,0 +1,5 @@
+css:
+  base:
+    - bootstrap.min.css
+    - bootstrap-responsive.min.css
+    - walker.css
