@@ -1,5 +1,5 @@
 html {
-  background: url("../images/gorge.jpg") no-repeat center center fixed;
+  background: url("../images/gorge2.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -27,7 +27,11 @@ body {
   font-weight: bold; }
 
 .hero-background {
-  opacity: 0.9;
+  opacity: 0.85;
   background-color: white; }
 .answer {
   padding-left: 2%; }
+
+.pledge-ammount {
+  float: right;
+  font-size: 20px; }
