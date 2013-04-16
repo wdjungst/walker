@@ -11,7 +11,24 @@ function resetButtonStates(button) {
     $(button).addClass('btn-primary');
 }
 
+function clearAll() {
+  $about_button.removeClass('btn-primary');
+  $donate_button.removeClass('btn-primary');
+  $comment_button.removeClass('btn-primary');
+  $faq_button.removeClass('btn-primary');
+
+  if (!$('#about-content').hasClass('hidden'))
+    $('#about-content').addClass('hidden');
+  if (!$('#donate-content').hasClass('hidden'))
+    $('#donate-content').addClass('hidden');
+  if (!$('#comment-content').hasClass('hidden'))
+    $('#comment-content').addClass('hidden');
+  if (!$('#faq-content').hasClass('hidden'))
+    $('#faq-content').addClass('hidden');
+}
+
 $about_button.bind('click', function() {
+  clearAll();
   resetButtonStates(this);
   if ($('#about-content').hasClass('hidden'))
     $('#about-content').removeClass('hidden');
@@ -21,6 +38,7 @@ $about_button.bind('click', function() {
 
 
 $donate_button.bind('click', function() {
+  clearAll();
   resetButtonStates(this);
   if ($('#donate-content').hasClass('hidden'))
     $('#donate-content').removeClass('hidden');
@@ -30,6 +48,7 @@ $donate_button.bind('click', function() {
 
 
 $comment_button.bind('click', function() {
+  clearAll();
   resetButtonStates(this);
   if ($('#comment-content').hasClass('hidden'))
     $('#comment-content').removeClass('hidden');
@@ -39,6 +58,7 @@ $comment_button.bind('click', function() {
 
 
 $faq_button.bind('click', function() {
+  clearAll();
   resetButtonStates(this);
   if ($('#faq-content').hasClass('hidden'))
     $('#faq-content').removeClass('hidden');
