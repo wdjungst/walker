@@ -19,17 +19,18 @@
           %p Welcome!  We would love to have Holly Walker join our DMB family again this year and we are prepared to do whatever it takes including beg!  You can click the donate link and pledge a donation to help get Holly to Dave.  You can also click the comment link and leave a message for Holly or anyone else.  The FAQ link will explain the logistics of how donations will be handled etc etc etc boring stuff.  Thank you for your support!  This time it IS our responsibilty.  
         .hero-unit.hero-background.hidden#donate-content
           %h2 Donate
-          %form.form-inline
+          %form.form-inline#pledge_form
+            %span#pledge_info
             %fieldset
               %legend Donations
               %label Name
-              %input{:type => "text", "placeholder" => "Your name"}
+              %input{:type => "text", "placeholder" => :name => "pledge_name", "Your name"}
               %label E-mail
-              %input{:type => "text", "placeholder" => "you@vailidemail.com"}
+              %input{:type => "text", :name => "pledge_email", "placeholder" => "you@vailidemail.com"}
               %label Pledge Amount 
               .input-prepend.input-append
                 %span.add-on $
-                %input.span3#appendedPrependedInput{:type => "text", "placeholder" => "20"}
+                %input.span3#appendedPrependedInput{:type => "text", :name => "pledge_amount", "placeholder" => "20"}
                 %span.add-on .00
               %button.btn.btn-primary{:type => "submit"} Pledge
         .hero-unit.hero-background.hidden#comment-content
