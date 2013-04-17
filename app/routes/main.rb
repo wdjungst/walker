@@ -19,14 +19,15 @@ class Walker < Sinatra::Application
 
   post '/pledge' do
     pledge_name = params[:pledge_name]
-    pledge_mail = params[:pledge_email]
+    pledge_email = params[:pledge_email]
     pledge_amount = params[:pledge_amount]
+    dollars = pledge_amount == '1' ? 'dollar' : 'dollars' 
     mail = Mail.deliver do
       to EMAIL['sendgrid']['emails']
-      from contact_mail
-      subject "#{contact_name} has pledged #{pledge_amount} dollars" 
+      from pledge_email
+      subject "#{pledge_name} has pledged #{pledge_amount} dollars" 
     end 
-  "Thanks for your pledge! You will recieve a paypal request for #{pledge_amount}."
+  "Thanks for your pledge! You will recieve a paypal request for #{pledge_amount} #{dollars}."
   end
 end
 

@@ -11,6 +11,7 @@ $ ->
         data: $form.serializeArray(),
         success: (data) ->
           $contentInfo = $("#pledge_info")
+          $contentInfo.hide() if $contentInfo.is(':visible')
           $contentInfo.html(data).slideToggle()
           $('#pledge_form')[0].reset()
           $submitButton.html("Send")

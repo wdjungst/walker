@@ -17,6 +17,9 @@
         success: function(data) {
           var $contentInfo;
           $contentInfo = $("#pledge_info");
+          if ($contentInfo.is(':visible')) {
+            $contentInfo.hide();
+          }
           $contentInfo.html(data).slideToggle();
           $('#pledge_form')[0].reset();
           $submitButton.html("Send");
