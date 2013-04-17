@@ -2,7 +2,7 @@ require 'rubygems'
 require 'yaml'
 require 'mongoid'
 require 'optparse'
-require File.dirname(__FILE__) + '../models/mongoid_db'
+require File.dirname(__FILE__) + '../../models/mongoid_db'
 
 class Walker < Sinatra::Application
   Mongoid.load!("./config/mongoid.yml")
