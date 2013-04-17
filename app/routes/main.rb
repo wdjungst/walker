@@ -2,8 +2,7 @@ require 'rubygems'
 require 'yaml'
 require 'mongoid'
 require 'optparse'
-require 'pry'
-require File.dirname(__FILE__) + '/mongoid_db'
+require File.dirname(__FILE__) + '../models/mongoid_db'
 
 class Walker < Sinatra::Application
   Mongoid.load!("./config/mongoid.yml")
@@ -13,16 +12,26 @@ class Walker < Sinatra::Application
     amount.save
   end
 
-  def pledge_amount(pledge)
+  def update_pledge_amount(pledge)
     amount = Pledge.distinct(:amount)
     pledged = amount.first + pledge
     Pledge.first.set(:amount, pledged)
     Pledge.first.save
     pledged
-  end  
-  
+  end
+
+  def retrieve_pledges
+    Pledge.distinct(:amount).first.to_s
+  end
+
   get '/' do
+    @pledges = retrieve_pledges
+    puts @pledges
     haml :index
+  end
+
+  get '/pledges' do
+    retrieve_pledges
   end
 
   post '/pledge' do
@@ -30,14 +39,13 @@ class Walker < Sinatra::Application
     pledge_email = params[:pledge_email]
     pledge_amount = params[:pledge_amount]
     dollars = pledge_amount == '1' ? 'dollar' : 'dollars'
-    pledged = pledge_amount(pledge_amount.to_i)
+    pledged = update_pledge_amount(pledge_amount.to_i)
     mail = Mail.deliver do
       to EMAIL['sendgrid']['emails']
       from pledge_email
       subject "#{pledge_name} has pledged #{pledge_amount} dollars" 
     end 
-    binding.pry
-  ["Thanks for your pledge! You will recieve a paypal request for #{pledge_amount} #{dollars}.", pledged]
+  "Thanks for your pledge! You will recieve a paypal request for #{pledge_amount} #{dollars}."
   end
 end
 

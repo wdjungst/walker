@@ -12,8 +12,16 @@ $ ->
         success: (data) ->
           $contentInfo = $("#pledge_info")
           $contentInfo.hide() if $contentInfo.is(':visible')
-          $contentInfo.html(data[0]).slideToggle()
-          $('.pledge-ammount').text("Raised: $#{data[1]}.00")
+          $contentInfo.html(data).slideToggle()
+          $.get '/pledges', (data) ->
+            $pledgeAmount = $('#pledge_amount')
+            $pledgeAmount.text("Raised: $#{data}.00")
+            $pledgeAmount.animate
+              "font-size": "20px"
+            , 400, "swing"
+            $pledgeAmount.animate
+              "font-size": "16px"
+            , 1000, "swing"
           $('#pledge_form')[0].reset()
           $submitButton.html("Send")
           $submitButton.removeAttr("disabled").removeClass("disabled")

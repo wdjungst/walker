@@ -21,6 +21,17 @@
             $contentInfo.hide();
           }
           $contentInfo.html(data).slideToggle();
+          $.get('/pledges', function(data) {
+            var $pledgeAmount;
+            $pledgeAmount = $('#pledge_amount');
+            $pledgeAmount.text("Raised: $" + data + ".00");
+            $pledgeAmount.animate({
+              "font-size": "20px"
+            }, 400, "swing");
+            return $pledgeAmount.animate({
+              "font-size": "16px"
+            }, 1000, "swing");
+          });
           $('#pledge_form')[0].reset();
           $submitButton.html("Send");
           return $submitButton.removeAttr("disabled").removeClass("disabled");
