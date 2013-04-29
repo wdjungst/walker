@@ -1,32 +1,40 @@
 require 'rubygems'
 require 'yaml'
-require 'mongoid'
-require 'optparse'
-require File.dirname(__FILE__) + '../../models/mongoid_db'
+require 'active_record'
+require 'pry'
+
+ActiveRecord::Base.establish_connection(
+  :adapter => 'mysql',
+  :host => 'localhost',
+  :encoding => 'utf8',
+  :database => 'walker',
+  :username => 'root',
+  :password => 'password'
+)
+
+class Pledge < ActiveRecord::Base
+end
+
 
 class Walker < Sinatra::Application
-  Mongoid.load!("./config/mongoid.yml")
-
-  def initialize_database
-    amount = Pledge.new(amount: 0)
-    amount.save
-  end
 
   def update_pledge_amount(pledge)
-    amount = Pledge.distinct(:amount)
-    pledged = amount.first + pledge
-    Pledge.first.set(:amount, pledged)
-    Pledge.first.save
+    unless pledge < 0
+      amount = Pledge.find(:all).first.amount
+      pledged = amount + pledge
+      pledge = Pledge.first
+      pledge.amount = pledged
+      pledge.save
+    end
     pledged
   end
 
   def retrieve_pledges
-    Pledge.distinct(:amount).first.to_s
+    Pledge.first.amount.to_s
   end
 
   get '/' do
     @pledges = retrieve_pledges
-    puts @pledges
     haml :index
   end
 

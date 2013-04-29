@@ -33,7 +33,7 @@
               %label Pledge Amount 
               .input-prepend.input-append
                 %span.add-on $
-                %input.span3#appendedPrependedInput{:type => "number", :name => "pledge_amount", "placeholder" => "20", :required => "required"}
+                %input.span3#appendedPrependedInput{:type => "number", :min => "0", :name => "pledge_amount", "placeholder" => "20", :required => "required"}
                 %span.add-on .00
               %button.btn.btn-primary{:type => "submit"} Pledge
         .hero-unit.hero-background.hidden#comment-content
