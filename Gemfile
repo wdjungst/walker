@@ -9,4 +9,4 @@ gem "haml"
 gem "bson_ext"
 gem "activerecord"
 gem "activeresource"
-
+gem "mysql2"

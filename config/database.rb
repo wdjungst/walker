@@ -2,7 +2,7 @@ require 'rubygems'
 require 'active_record'
 
 ActiveRecord::Base.establish_connection(
-  :adapter => 'mysql',
+  :adapter => 'mysql2',
   :host => 'localhost',
   :encoding => 'utf8',
   :database => 'walker',

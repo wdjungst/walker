@@ -4,7 +4,7 @@ require 'active_record'
 require 'pry'
 
 ActiveRecord::Base.establish_connection(
-  :adapter => 'mysql',
+  :adapter => 'mysql2',
   :host => 'localhost',
   :encoding => 'utf8',
   :database => 'walker',
